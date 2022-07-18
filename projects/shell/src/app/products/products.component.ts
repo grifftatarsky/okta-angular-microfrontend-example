@@ -10,7 +10,10 @@ import { BasketService, Product, ProductsService } from '@shared';
 export class ProductsComponent implements OnInit {
   public products: Product[] = [];
 
-  constructor(private productsService: ProductsService, private basketService: BasketService) { }
+  constructor(
+      private productsService: ProductsService,
+      private basketService: BasketService
+  ) { }
 
   public ngOnInit(): void {
     this.products = this.productsService.getProducts();

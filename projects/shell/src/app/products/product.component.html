@@ -3,10 +3,10 @@
         <img src="{{product.link}}" alt="{{product.name}}" class="absolute inset-0 w-full h-full object-cover rounded-l-lg" />
     </div>
     <div class="p-6 border-y border-r border-sky-300 rounded-r-lg w-96 flex flex-col">
-        <h2 class="text-3xl text-violet-600">
+        <h2 class="text-3xl">
             {{product.name}}
         </h2>
-        <p class="my-2 text-sm text-slate-600 flex-grow">
+        <p class="my-2 text-sm antique-white flex-grow">
             {{product.description}}
         </p>
         <div class="text-sm font-medium self-end">
@@ -16,7 +16,7 @@
                     (click)="purchaseProduct()">
                 <span *ngIf="!notifyPurchase; else notify">Add to basket</span>
                 <ng-template #notify><div class="flex items-center">
-                    <span class="material-icons-outlined text-emerald-600">check_circle_outline</span>
+                    <span class="material-icons-outlined text-emerald-600">CHECK!</span>
                     <span class="font-semibold text-l">&nbsp; Added!</span>
                 </div></ng-template>
             </button>

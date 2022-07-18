@@ -1,62 +1,42 @@
 <header class="p-4 mx-4 flex flex-row justify-between items-center">
   <div class="flex flex-row items-center">
-    <img class="w-14" src="assets/cupcake.svg" alt="cupcake">
-    <h1 class="text-4xl ml-3 text-cyan-500"><a routerLink="/">Happy Cupcake</a></h1>
+    <h1 class="logo"><a routerLink="/">MICROFICHE | Angular MFE w/ Portal Authentication</a></h1>
   </div>
-  <div class="text-l inline-flex justify-end items-center text-slate-700">
-    <span class="mr-4" *ngIf="name$ | async as name; else greeting">Welcome back {{name}}</span>
-    <ng-template #greeting>
-      <span class="mr-4">Hello cupcake fan!</span>
-    </ng-template>
-
+  <div class="justify-end nav-div">
+    <span class="mr-4 welcome" *ngIf="name">Welcome back, {{name}}</span>
     <nav>
-      <ul class="inline-flex gap-3 items-center">
+      <ul class="inline-flex gap-3 menu-links">
+<!--        TODO | GRIFF: Remove Okta entirely when you want.-->
+<!--        <li>-->
+<!--          <a routerLink="/okta-profile">-->
+<!--            <button-->
+<!--                    class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400"-->
+<!--                    routerLinkActive="font-semibold"-->
+<!--                    [routerLinkActiveOptions]="{exact: true}"-->
+<!--            >-->
+<!--              <span class="material-icons-outlined">lock</span>-->
+<!--              <span>Locked By Okta</span>-->
+<!--            </button>-->
+<!--          </a>-->
+<!--        </li>-->
         <li>
-          <a routerLink="/">
-            <button
-                    class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400"
-                    routerLinkActive="text-cyan-500 font-semibold"
+          <a routerLink="/portal-profile">
+            <button class="flex items-center"
+                    routerLinkActive="font-semibold"
                     [routerLinkActiveOptions]="{exact: true}"
             >
-              <span class="material-icons-outlined text-gray-500">storefront</span>
-              <span>&nbsp;Cupcakes</span>
+              <span>Portal Profile MFE</span>
             </button>
           </a>
         </li>
         <li>
           <a routerLink="/basket">
-            <button
-                    class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400"
-                    routerLinkActive="text-cyan-500 font-semibold"
-            >
-              <span class="material-icons-outlined text-gray-500">shopping_basket</span>
-              <span>&nbsp;Basket</span>
-            </button>
-          </a>
-        </li>
-        <li *ngIf="isAuthenticated$ | async">
-          <a routerLink="/">
-            <button
-                    class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400"
-                    routerLinkActive="text-cyan-500 font-semibold"
-            >
-              <span class="material-icons-outlined text-gray-500">account_circle</span>
-              <span>&nbsp;Profile</span>
+            <button class="flex items-center" routerLinkActive="font-semibold">
+              <span>Basket MFE</span>
             </button>
           </a>
         </li>
         <li>
-          <button *ngIf="(isAuthenticated$ | async) === false; else logout" class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400">
-            <span class="material-icons-outlined text-gray-500">login</span>
-            <span>&nbsp;Sign In</span>
-          </button>
-
-          <ng-template #logout>
-            <button  class="flex items-center transition ease-in delay-150 duration-300 h-10 px-4 rounded-lg hover:border hover:border-sky-400">
-              <span class="material-icons-outlined text-gray-500">logout</span>
-              <span>&nbsp;Sign Out</span>
-            </button>
-          </ng-template>
         </li>
       </ul>
     </nav>

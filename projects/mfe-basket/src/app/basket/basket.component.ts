@@ -13,11 +13,12 @@ interface BasketProduct {
   ]
 })
 export class BasketComponent implements OnInit {
-
   public items: BasketProduct[] = [];
   public totalItems = 0;
 
-  constructor(private basketService: BasketService) { }
+  constructor(
+      private basketService: BasketService
+  ) { }
 
   ngOnInit(): void {
     const basketItems = this.basketService.getBasketItems();
@@ -27,7 +28,6 @@ export class BasketComponent implements OnInit {
           idx !== -1 ? acc[idx].quantity++ : acc.push({product: cur, quantity: 1});
           return acc;
         }, [] as BasketProduct[]);
-
     this.totalItems = basketItems.length;
   }
 }

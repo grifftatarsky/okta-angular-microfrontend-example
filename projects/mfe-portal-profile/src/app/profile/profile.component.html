@@ -1,0 +1,13 @@
+<h3 class="text-xl mb-6">Your Portal Profile</h3>
+<div>
+    <p class="font-semibold">Full Name: <span class="font-regular">{{ userName$ | async }}</span></p>
+    <p class="font-semibold">Email: <span class="font-regular">{{ email$ | async }}</span></p>
+    <br>
+    <p class="font-semibold">
+        The Portal User, converted to a string, is below. This information is taken from the SHELL, and passed into this MFE through a shared 'Portal Profile' Service.
+        </p>
+    <br>
+    <p class="text-wrap">
+            {{ userString$ | async }}
+    </p>
+</div>
